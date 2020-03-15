@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="app1">
+			<span style="color: #DC3545;">通过angular路由可以实现多视图的单页 Web 应用</span>
+			<br/>
+			<br/>
+			1.引入angular.js和angular-route.js
+			<br/>
+			<br/>
+			2.包含了 ngRoute 模块作为主应用模块的依赖模块
+			<br/>
+			<xmp>
+				var app = angular.module('app1',['ngRoute']);
+			</xmp>
+			<br/>
+			3.配置 $routeProvider，AngularJS $routeProvider 用来定义路由规则
+			<br/>
+			<xmp>
+				app.config(['$routeProvider', function($routeProvider){
+					$routeProvider
+						//在 ng-view 中插入简单的 HTML 内容
+						.when('/',{template:'这是首页页面'})
+						//在 ng-view 中插入 HTML 模板文件
+						.when('/computers',{
+							templateUrl: 'computers.html',
+							//在当前模板上执行的controller函数，生成新的scope
+							controller:'computersController'
+						})
+						.when('/printers',{template:'这是打印机页面'})
+						//当都不符合时就选择一个跳转
+						.otherwise({redirectTo:'/'});
+				}]);
+			</xmp>
+			4.如果页面模板需要控制器，也要进行配置
+			<xmp>
+				//computers页面模板对应的控制器
+				app.controller('computersController',function($scope){
+					
+				});
+			</xmp>
+			5.给页面上一个元素加上ngView指令，该元素内的 HTML 内容会根据路由的变化而变化
+			<br/>
+			<xmp>
+				<div ng-view></div>
+			</xmp>
+			<br/>
+			6.AngularJS 路由通过 #! + 标记帮助我们区分不同的逻辑页面并将不同的页面绑定到对应的控制器上
+			<br/>
+			<ul>
+				<li><a href="#!/">首页</a></li>
+				<li><a href="#!/computers">电脑</a></li>
+				<li><a href="#!/printers">打印机</a></li>
+				<li><a href="#!/blabla">其他</a></li>
+			</ul>
+			<br/>
+			<div ng-view></div>
+		</div>
+	</body>
+	<!-- 引入angular的js -->
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 引入angular的路由js -->
+	<script src="js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/test3.js" type="text/javascript" charset="utf-8"></script>
+</html>

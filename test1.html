@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 引入font-awesome图标样式 -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+		<style type="text/css">
+			.c-red{
+				color: #F43530;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ng-app 指令初始化一个 AngularJS 应用程序 -->
+		<!-- ng-controller 指令指定控制器名字 -->
+		<!-- ng-init 指令初始化应用程序数据，表达式赋值或调用控制器定义的方法-->
+		<div ng-app="app1" ng-controller="myCtr1" ng-init="init()">
+			<!-- 这里使用了font-awesome的用户图标 -->
+			<i class="fa fa-user" aria-hidden="true"></i>
+			<!-- ng-model 指令把元素值（比如输入框的值）绑定到应用程序，双向绑定 -->
+			<!-- 可以用表达式绑定到页面元素的属性，比如title="{{username}}" -->
+			用户名：<input type="text" title="{{username}}" ng-model="username" />
+			<!-- ng-show 指令隐藏或显示一个 HTML 元素 -->
+			<span ng-show="!username" class="c-red">用户名不能为空</span>
+			
+			<br/>
+			<!-- 这里使用了font-awesome的钥匙图标 -->
+			<i class="fa fa-key" aria-hidden="true"></i>
+			密码：<input type="password" ng-model="password" />
+			<span ng-show="!password" class="c-red">密码不能为空</span>
+			
+			<br/> 
+			<!-- ng-click 指令定义了 AngularJS 点击事件 -->
+			<button type="button" ng-click="login()">
+				<!-- 这里使用了font-awesome的登录图标 -->
+				<i class="fa fa-sign-in" aria-hidden="true"></i> 登录
+			</button>
+		</div>
+	</body>
+	<!-- 引入angular的js -->
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/test1.js" type="text/javascript" charset="utf-8"></script>
+</html>

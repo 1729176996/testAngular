@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="app1">
+			ng-include指令引入html页面，如果要跨域引用就需要在js你配置
+			<br/>
+			<!-- ng-include指令引入html页面，如果要跨域引用就需要在js你配置 -->
+			<div ng-include="'https://c.runoob.com/runoobtest/angular_include.php'"></div>
+		</div>
+	</body>
+	<!-- 引入angular的js -->
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/test2.js" type="text/javascript" charset="utf-8"></script>
+</html>
